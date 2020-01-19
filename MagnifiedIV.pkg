@@ -1,0 +1,20 @@
+v 0.1
+d 'MagnifiedIV': Runs the Magnified IV Estimator from Huntington-Klein (2019)
+d 
+d Perform SLATE/Magnified IV estimation.
+d 
+d Distribution-Date:   20200119
+d License: MIT
+d 
+F factorpull.ado
+F factorpull.sthlp
+F groupCF.ado
+F groupCF.sthlp
+F groupCFsetup.ado
+F groupCFsetup.sthlp
+F groupsearch.ado
+F groupsearch.sthlp
+F magnifiedIV.ado
+F magnifiedIV.sthlp
+F ownpersonalssesus.ado
+F ownpersonalssesus.sthlp

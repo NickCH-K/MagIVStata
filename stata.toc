@@ -1,0 +1,8 @@
+v 0.1
+d Materials by N. Huntington-Klein
+d nhuntington-klein@fullerton.edu
+d http://nickchk.com
+
+d 'MagnifiedIV': Runs the Magnified IV Estimator from Huntington-Klein (2019)
+
+p MagnifiedIV
