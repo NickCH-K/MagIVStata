@@ -49,7 +49,7 @@ prog def magnifiedIV
 	* Fix touse since it won't pick up all the missings from `anything'
 	fvrevar `dvname' `exonames' `endonames' `exclnames'
 	foreach var of varlist `r(varlist)' {
-		replace `touse' = 0 if missing(`var')
+		qui replace `touse' = 0 if missing(`var')
 	} 
 	
 	foreach x in ivtype dvname exonames endonames exclnames {
@@ -96,8 +96,8 @@ prog def magnifiedIV
 	if inlist("`grouping'","groupCF","groupsearch") {
 	
 		if "`groupformula'" == "" {
-			foreach x in `endonames' {
-				local groupformula = "`groupformula', `x' `exonames'"
+			foreach x in `exclnames' {
+				local groupformula = "`groupformula', `exonames'"
 			}
 			local groupformula = substr("`groupformula'",2,.)
 		}

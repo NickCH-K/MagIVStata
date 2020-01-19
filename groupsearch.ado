@@ -28,7 +28,7 @@ prog def groupsearch
 		* Fix touse since it won't pick up all the missings from `anything'
 		fvrevar `dv' `iv' `indvars'
 		foreach var of varlist `r(varlist)' {
-			replace `touse' = 0 if missing(`var')
+			qui replace `touse' = 0 if missing(`var')
 		} 
 		
 		* Partial out if we have controls

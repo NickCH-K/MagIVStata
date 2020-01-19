@@ -38,8 +38,6 @@ prog def groupCF
 	quietly {
 		preserve
 		
-		keep if `touse'
-		
 		local dv = word("`anything'", 1)
 		fvrevar `dv'
 		local dv2 = "`r(varlist)'"
@@ -57,6 +55,8 @@ prog def groupCF
 		foreach var of varlist `dv2' `iv2' `indvars2' {
 			replace `touse' = 0 if missing(`var')
 		} 
+		
+		keep if `touse'
 		
 		keep `dv2' `iv2' `indvars2' `exp'
 		order `dv2' `iv2' `indvars2' `exp'
@@ -132,11 +132,11 @@ prog def groupCF
 		forvalues i = 1(1)`numgroups' {
 			local j = `i' - 1
 			local x = word(`"`r(index)'"',`i')
-			label def cf `i' `"`x'"', `apprep'
+			label def cf_`iv' `i' `"`x'"', `apprep'
 			local apprep = "add"
 		}
 		
-		label values `g' cf
+		label values `g' cf_`iv'
 	}
 	
 	
