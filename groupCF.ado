@@ -1,7 +1,7 @@
 cap prog drop groupCF
 prog def groupCF
 	
-	syntax anything [if] [in] [fw aw pw iw/], [g(string)] [ngroups(integer 4)] [CFopts(string)]
+	syntax anything [if] [in] [fw aw pw iw/], [g(string)] [ngroups(integer 4)] [CFopts(string)] [seed(integer -1)]
 
 	version 13
 
@@ -105,11 +105,16 @@ prog def groupCF
 		local numtocopy = r(N)
 	}	
 	
+	local seedn = ""
+	if "`seed'" != "-1" {
+		local seedn = "set.seed(`seed');"
+	}
+	
 	if "`exp'" == "" {
-		rcall: groups <- MagnifiedIV::groupCF(`dv' ~ `iv' | `indvars', data = df, ngroups = `ngroups'`CFopts'); gn <- as.numeric(groups)
+		rcall: `seedn' groups <- MagnifiedIV::groupCF(`dv' ~ `iv' | `indvars', data = df, ngroups = `ngroups'`CFopts'); gn <- as.numeric(groups)
 	}
 	else {
-		rcall: wts <- df[,'`exp'']; groups <- MagnifiedIV::groupCF(`dv' ~ `iv' | `indvars', data = df, ngroups = `ngroups'`CFopts', sample.weights = wts); gn <- as.numeric(groups)
+		rcall: `seedn' wts <- df[,'`exp'']; groups <- MagnifiedIV::groupCF(`dv' ~ `iv' | `indvars', data = df, ngroups = `ngroups'`CFopts', sample.weights = wts); gn <- as.numeric(groups)
 	}
 	
 
