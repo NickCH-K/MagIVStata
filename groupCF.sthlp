@@ -26,7 +26,7 @@
 {syntab:Main}
 {synopt:{opt g(name)}} create variable name. "groupCF" if not specified{p_end}
 {synopt:{opt ngroups(#)}} number of groups to divide the data into, 4 by default. Note that, if you really want, you could set this to the number of observations in the analysis, {help decode} the result, and then fish the numbers out of the string variable you'll get, which will get predicted effects from causal forest without dealing with quantiles. {p_end}
-{synopt:{opt CFopts(string)}} Options to pass to the R function {cmd: grf::causal_forest()}, in R syntax. See {cmd: rcall: help(causal_forest)}. Do not include {cmd: sample.weights}, instead include weights with {cmd: [weight]}. Any option other than {cmd: sample.weights} that requires a matrix or variable as input will probably not work.{p_end}
+{synopt:{opt cfopts(string)}} Options to pass to the R function {cmd: grf::causal_forest()}, in R syntax. See {cmd: rcall: help(causal_forest)}. Do not include {cmd: sample.weights}, instead include weights with {cmd: [weight]}. Any option other than {cmd: sample.weights} that requires a matrix or variable as input will probably not work.{p_end}
 {synopt:{opt seed(integer)}} Set the seed in R.{p_end}
 {synoptline}
 {p2colreset}{...}
