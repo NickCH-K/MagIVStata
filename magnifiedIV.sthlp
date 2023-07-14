@@ -76,7 +76,7 @@ nhuntington-klein@fullerton.edu
 
 {phang} First, repeat the ivregress standard example.
 
-{phang}{cmd:. webuse hsng2, clear}
+{phang}{cmd:. use http://www.stata-press.com/data/r9/hsng2.dta, clear}
 
 {phang}{cmd:. ivregress 2sls rent pcturban (hsngval = faminc i.region), small first}
 
